@@ -25,7 +25,43 @@
             <a href="index.html" class="relative pb-2 after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-red-500 after:transition-all after:duration-300 hover:after:w-full">Home</a>
             <a href="shop.html" class="relative pb-2 after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-red-500 after:transition-all after:duration-300 hover:after:w-full">Shop</a>
             <a href="#" class="relative pb-2 after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-red-500 after:transition-all after:duration-300 hover:after:w-full">Blog</a>
-            <a href="#" class="relative pb-2 after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-red-500 after:transition-all after:duration-300 hover:after:w-full">Contact</a>
+        <div>
+            <a href="#" id="contactBtn" class="relative pb-2 after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] 
+    after:bg-red-500 after:transition-all after:duration-300 hover:after:w-full">
+    Contact
+</a> 
+
+<!-- Popup Modal (Initially Hidden) -->
+<div id="contactModal" class="fixed inset-0 flex items-center justify-center bg-black/60 backdrop-blur-md hidden z-50">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-[90%] max-w-md relative">
+        
+        <!-- Close Button -->
+        <button id="closeModal" class="absolute top-3 right-3 text-gray-600 hover:text-gray-900 text-xl">
+            ✖
+        </button>
+
+        <!-- Newsletter Form -->
+        <h2 class="text-2xl font-bold text-center text-gray-800">Subscribe to Our Newsletter</h2>
+        <p class="text-gray-600 text-sm text-center mb-4">Stay updated with our latest trends and offers.</p>
+        <form class="flex flex-col gap-4">
+            <input type="text" placeholder="Your Name" class="p-3 border rounded-lg w-full focus:ring-2 focus:ring-red-500">
+            <input type="email" placeholder="Your Email" class="p-3 border rounded-lg w-full focus:ring-2 focus:ring-red-500">
+            <button type="submit" class="bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition-all">
+                Subscribe
+            </button>
+        </form>
+
+        <!-- Social Media Icons & Contact -->
+        <div class="flex justify-center gap-6 mt-4">
+            <a href="#" class="text-gray-600 hover:text-red-500 text-2xl"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="text-gray-600 hover:text-red-500 text-2xl"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-gray-600 hover:text-red-500 text-2xl"><i class="fab fa-instagram"></i></a>
+        </div>
+
+        <p class="text-gray-800 text-center mt-3 font-semibold">📞 Contact: +880 123 456 789</p>
+    </div>
+</div>
+        </div>
         </div>        
     </nav>
 
@@ -198,6 +234,10 @@
             <button class="mt-2 bg-red-500 text-white py-2 px-4 rounded-lg transform transition duration-300 hover:scale-105">Buy now</button>
         </div>
     </div>
+</section>
+<!-- footer -->
+<section>
+<div id="footer-placeholder"></div>
 </section>
 <script src="script.js"></script>
 </body>
