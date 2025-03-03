@@ -3,243 +3,343 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <link rel="shortcut icon" href="assets/favicon.avif" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <title>Male Fashion</title>
+    <style>
+        .hover-scale { transition: transform 0.3s ease; }
+        .hover-scale:hover { transform: scale(1.05); }
+        .fade-in { animation: fadeIn 1s; }
+        .slide-in { animation: slideInLeft 0.8s; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideInLeft { from { transform: translateX(-100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+        .bounce-effect:hover { animation: bounce 0.5s; }
+        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    </style>
 </head>
-<body>
-    <nav class="bg-black text-white flex justify-between p-3 transition-all duration-300 hover:opacity-0 hover:pointer-events-none">
-<div class=" ml-36 mr-36">
-    <h4>Free shipping, 30-day return or refund guarantee.</h4>
-</div>
-<div class=" ml-36 mr-36">
-    <a href="#">login</a>
-    <a href="#">signUp</a>
-</div>
+<body class="overflow-x-hidden">
+    <!-- Top navigation bar -->
+    <nav class="bg-black text-white flex justify-between p-3 transition-all duration-500 hover:bg-gray-900">
+        <div class="mx-4 md:mx-36">
+            <h4><i class="fas fa-truck-fast mr-2"></i>Free shipping, 30-day return or refund guarantee.</h4>
+        </div>
+        <div class="mx-4 md:mx-36">
+            <a href="#" class="hover:text-red-400 transition-colors duration-300 mr-4"><i class="fas fa-user mr-1"></i>Login</a>
+            <a href="#" class="hover:text-red-400 transition-colors duration-300"><i class="fas fa-user-plus mr-1"></i>SignUp</a>
+        </div>
     </nav>
 
-    <nav class="bg-white flex justify-between p-6 sticky top-0 z-50  shadow-md">
-        <div class="ml-36 mr-36">
-            <img src="assets/logo.webp" alt="">
+    <!-- Main navigation -->
+    <nav class="bg-white flex justify-between p-6 sticky top-0 z-50 shadow-md transition-all duration-300">
+        <div class="mx-4 md:mx-36 hover-scale">
+            <img src="assets/logo.webp" alt="Logo">
         </div>
-        <div class="ml-36 mr-36 font-medium flex gap-6 relative text-black">
-            <a href="index.html" class="relative pb-2 after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-red-500 after:transition-all after:duration-300 hover:after:w-full">Home</a>
-            <a href="shop.html" class="relative pb-2 after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-red-500 after:transition-all after:duration-300 hover:after:w-full">Shop</a>
-            <a href="blog.html" class="relative pb-2 after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-red-500 after:transition-all after:duration-300 hover:after:w-full">Blog</a>
-        <div>
-            <a href="#" id="contactBtn" class="relative pb-2 after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] 
-    after:bg-red-500 after:transition-all after:duration-300 hover:after:w-full">
-    Contact
-</a> 
+        <div class="mx-4 md:mx-36 font-medium flex gap-6 relative text-black">
+            <a href="index.html" class="relative pb-2 after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-red-500 after:transition-all after:duration-300 hover:after:w-full"><i class="fas fa-home mr-1"></i>Home</a>
+            <a href="shop.html" class="relative pb-2 after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-red-500 after:transition-all after:duration-300 hover:after:w-full"><i class="fas fa-shopping-bag mr-1"></i>Shop</a>
+            <a href="blog.html" class="relative pb-2 after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-red-500 after:transition-all after:duration-300 hover:after:w-full"><i class="fas fa-blog mr-1"></i>Blog</a>
+            <div>
+                <a href="#" id="contactBtn" class="relative pb-2 after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-red-500 after:transition-all after:duration-300 hover:after:w-full"><i class="fas fa-envelope mr-1"></i>Contact</a> 
 
-<!-- Popup Modal (Initially Hidden) -->
-<div id="contactModal" class="fixed inset-0  items-center justify-center bg-black/60 backdrop-blur-md hidden z-50">
-    <div class="bg-white p-8 rounded-lg shadow-lg w-[90%] max-w-md relative">
-        
-        <!-- Close Button -->
-        <button id="closeModal" class="absolute top-3 right-3 text-gray-600 hover:text-gray-900 text-xl">
-            ✖
-        </button>
-
-        <!-- Newsletter Form -->
-        <h2 class="text-2xl font-bold text-center text-gray-800">Subscribe to Our Newsletter</h2>
-        <p class="text-gray-600 text-sm text-center mb-4">Stay updated with our latest trends and offers.</p>
-        <form class="flex flex-col gap-4">
-            <input type="text" placeholder="Your Name" class="p-3 border rounded-lg w-full focus:ring-2 focus:ring-red-500">
-            <input type="email" placeholder="Your Email" class="p-3 border rounded-lg w-full focus:ring-2 focus:ring-red-500">
-            <button type="submit" class="bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition-all">
-                Subscribe
-            </button>
-        </form>
-
-        <!-- Social Media Icons & Contact -->
-        <div class="flex justify-center gap-6 mt-4">
-            <a href="#" class="text-gray-600 hover:text-red-500 text-2xl"><i class="fab fa-facebook"></i></a>
-            <a href="#" class="text-gray-600 hover:text-red-500 text-2xl"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="text-gray-600 hover:text-red-500 text-2xl"><i class="fab fa-instagram"></i></a>
-        </div>
-
-        <p class="text-gray-800 text-center mt-3 font-semibold">📞 Contact: +880 123 456 789</p>
-    </div>
-</div>
-        </div>
+                <!-- Contact Modal -->
+                <div id="contactModal" class="fixed inset-0 items-center justify-center bg-black/60 backdrop-blur-md hidden z-50">
+                    <div class="bg-white p-8 rounded-lg shadow-lg w-[90%] max-w-md relative">
+                        <button id="closeModal" class="absolute top-3 right-3 text-gray-600 hover:text-gray-900 text-xl">✖</button>
+                        <h2 class="text-2xl font-bold text-center text-gray-800">Subscribe to Our Newsletter</h2>
+                        <p class="text-gray-600 text-sm text-center mb-4">Stay updated with our latest trends and offers.</p>
+                        <form class="flex flex-col gap-4">
+                            <input type="text" placeholder="Your Name" class="p-3 border rounded-lg w-full focus:ring-2 focus:ring-red-500">
+                            <input type="email" placeholder="Your Email" class="p-3 border rounded-lg w-full focus:ring-2 focus:ring-red-500">
+                            <button type="submit" class="bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition-all">Subscribe</button>
+                        </form>
+                        <div class="flex justify-center gap-6 mt-4">
+                            <a href="#" class="text-gray-600 hover:text-red-500 text-2xl"><i class="fab fa-facebook"></i></a>
+                            <a href="#" class="text-gray-600 hover:text-red-500 text-2xl"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-gray-600 hover:text-red-500 text-2xl"><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <p class="text-gray-800 text-center mt-3 font-semibold"><i class="fas fa-phone mr-2"></i>Contact: +880 123 456 789</p>
+                    </div>
+                </div>
+            </div>
         </div>        
     </nav>
 
-   <!-- Hero Section -->
-<div class="relative w-full">
-    <!-- Image Container -->
-    <div class="w-full h-auto">
-        <img src="assets/hero_1.webp" alt="" class="w-full h-1/2">
+    <!-- Hero Section -->
+    <div class="relative w-full">
+        <div class="w-full h-auto">
+            <img src="assets/hero_1.webp" alt="Hero Image" class="w-full h-1/2">
+        </div>
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-6 bg-gradient-to-b from-black/60 to-black/30 backdrop-blur-sm">
+            <span class="text-lg font-semibold text-red-400 tracking-widest uppercase animate-pulse"><i class="fas fa-star mr-2"></i>Summer Collection</span>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white drop-shadow-lg fade-in">
+                FALL - WINTER <br> Collection 2025
+            </h1>
+            <p class="max-w-lg text-lg md:text-xl text-gray-200 mt-4 leading-relaxed slide-in">
+                A specialist label creating luxury essentials. Ethically crafted with an unwavering commitment to exceptional quality.
+            </p>
+            <a href="shop.html">
+                <button class="mt-6 px-8 py-3 bg-red-500 text-white font-semibold rounded-lg shadow-lg hover:bg-red-600 hover:scale-110 transition-all duration-300 bounce-effect">
+                    <i class="fas fa-shopping-cart mr-2"></i>Shop Now
+                </button>
+            </a>
+        </div>
     </div>
 
-    <!-- Text Overlay -->
-    <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-6 
-    bg-gradient-to-b from-black/60 to-black/30 backdrop-blur-sm">
-        <span class="text-lg font-semibold text-red-400 tracking-widest uppercase">
-            Summer Collection
-        </span>
+    <!-- Featured Products Section -->
+    <section class="relative pt-16 bg-white">
+        <h2 class="font-extrabold text-center text-3xl mb-8 relative inline-block mx-auto pb-2 after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-24 after:h-1 after:bg-red-500"><i class="fas fa-fire mr-2 text-red-500"></i>Featured Products</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 p-6 max-w-6xl mx-auto">
+            <div class="relative group overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500">
+                <img src="assets/hoodie.jpg" alt="Product" class="w-full h-64 object-cover transition-all duration-500 group-hover:blur-sm group-hover:brightness-50 group-hover:scale-110">
+                <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-full transition-all duration-500">
+                    <h3 class="text-lg font-bold"><i class="fas fa-tshirt mr-2"></i>Hoodie</h3>
+                    <p class="text-sm">৳850</p>
+                    <button class="mt-3 px-5 py-2 bg-red-500 rounded-lg hover:bg-red-600 hover:scale-110 transition-all duration-300"><i class="fas fa-shopping-bag mr-2"></i>Shop Now</button>
+                </div>
+            </div>
 
-        <h1 class="text-5xl md:text-7xl font-extrabold text-white drop-shadow-lg">
-            FALL - WINTER <br> Collection 2025
-        </h1>
+            <div class="relative group overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500">
+                <img src="assets/shoes_1.jpg" alt="Product" class="w-full h-64 object-cover transition-all duration-500 group-hover:blur-sm group-hover:brightness-50 group-hover:scale-110">
+                <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-full transition-all duration-500">
+                    <h3 class="text-lg font-bold"><i class="fas fa-shoe-prints mr-2"></i>Jordan Air-force2</h3>
+                    <p class="text-sm">৳999</p>
+                    <button class="mt-3 px-5 py-2 bg-red-500 rounded-lg hover:bg-red-600 hover:scale-110 transition-all duration-300"><i class="fas fa-shopping-bag mr-2"></i>Shop Now</button>
+                </div>
+            </div>
 
-        <p class="max-w-lg text-lg md:text-xl text-gray-200 mt-4 leading-relaxed">
-            A specialist label creating luxury essentials. Ethically crafted with an unwavering commitment to exceptional quality.
-        </p>
-
-       <a href="shop.html">
-        <button class="mt-6 px-8 py-3 bg-red-500 text-white font-semibold rounded-lg 
-        shadow-lg hover:bg-red-600 hover:scale-105 transition-all duration-300" >
-     Shop Now
- </button>
-       </a>
-    </div>
-</div>
-
-<!-- New Section for Products -->
-<section class="relative pt-20 bg-white">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
-        <!-- Product Card 1 -->
-        <div class="relative group overflow-hidden rounded-lg shadow-lg">
-            <img src="assets/hoodie.jpg" alt="Product" class="w-full h-64 object-cover transition-all duration-500 group-hover:blur-sm group-hover:brightness-50">
-            <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-full transition-all duration-500">
-                <h3 class="text-lg font-bold">hoodie</h3>
-                <p class="text-sm">৳850</p>
-                <button class="mt-3 px-5 py-2 bg-red-500 rounded-lg hover:bg-red-600 transition-all duration-300">Shop Now</button>
+            <div class="relative group overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500">
+                <img src="assets/glasses_1.jpg" alt="Product" class="w-full h-64 object-cover transition-all duration-500 group-hover:blur-sm group-hover:brightness-50 group-hover:scale-110">
+                <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-full transition-all duration-500">
+                    <h3 class="text-lg font-bold"><i class="fas fa-glasses mr-2"></i>Glasses</h3>
+                    <p class="text-sm">৳99</p>
+                    <button class="mt-3 px-5 py-2 bg-red-500 rounded-lg hover:bg-red-600 hover:scale-110 transition-all duration-300"><i class="fas fa-shopping-bag mr-2"></i>Shop Now</button>
+                </div>
             </div>
         </div>
+    </section>
 
-        <!-- Product Card 2 -->
-        <div class="relative group overflow-hidden rounded-lg shadow-lg">
-            <img src="assets/shoes_1.jpg" alt="Product" class="w-full h-64 object-cover transition-all duration-500 group-hover:blur-sm group-hover:brightness-50">
-            <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-full transition-all duration-500">
-                <h3 class="text-lg font-bold">Jordan Air-force2</h3>
-                <p class="text-sm">৳999</p>
-                <button class="mt-3 px-5 py-2 bg-red-500 rounded-lg hover:bg-red-600 transition-all duration-300">Shop Now</button>
+    <!-- Top Sales Section -->
+    <section class="relative pt-16 bg-gray-50 py-12">
+        <h2 class="font-extrabold text-center text-3xl mb-8 relative inline-block mx-auto pb-2 after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-24 after:h-1 after:bg-red-500"><i class="fas fa-crown mr-2 text-yellow-500"></i>Top Sales</h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 p-6 max-w-6xl mx-auto">
+            <div class="relative group overflow-hidden rounded-lg shadow-lg bg-white p-4 hover:shadow-xl transition-all duration-300 hover-scale">
+                <div class="absolute top-2 right-2 bg-red-500 text-white rounded-full w-10 h-10 flex items-center justify-center">-15%</div>
+                <img src="assets/t-shirt2.jpg" alt="T-shirt" class="w-full h-64 object-cover rounded group-hover:scale-105 transition-all duration-500">
+                <h3 class="text-lg font-bold mt-2"><i class="fas fa-tshirt mr-2"></i>T-shirt</h3>
+                <p class="text-sm">$39.99</p>
+                <button class="mt-2 bg-red-500 text-white py-2 px-4 rounded-lg transform transition duration-300 hover:scale-105 hover:bg-red-600"><i class="fas fa-shopping-cart mr-2"></i>Buy now</button>
+            </div>
+            
+            <div class="relative group overflow-hidden rounded-lg shadow-lg bg-white p-4 hover:shadow-xl transition-all duration-300 hover-scale">
+                <div class="absolute top-2 right-2 bg-red-500 text-white rounded-full w-10 h-10 flex items-center justify-center">-20%</div>
+                <img src="assets/glasses_1.jpg" alt="Glasses" class="w-full h-64 object-cover rounded group-hover:scale-105 transition-all duration-500">
+                <h3 class="text-lg font-bold mt-2"><i class="fas fa-glasses mr-2"></i>Glasses</h3>
+                <p class="text-sm">$39.99</p>
+                <button class="mt-2 bg-red-500 text-white py-2 px-4 rounded-lg transform transition duration-300 hover:scale-105 hover:bg-red-600"><i class="fas fa-shopping-cart mr-2"></i>Buy now</button>
+            </div>
+            
+            <div class="relative group overflow-hidden rounded-lg shadow-lg bg-white p-4 hover:shadow-xl transition-all duration-300 hover-scale">
+                <div class="absolute top-2 right-2 bg-red-500 text-white rounded-full w-10 h-10 flex items-center justify-center">-10%</div>
+                <img src="assets/shoes_2.jpg" alt="Jordan" class="w-full h-64 object-cover rounded group-hover:scale-105 transition-all duration-500">
+                <h3 class="text-lg font-bold mt-2"><i class="fas fa-shoe-prints mr-2"></i>Jordan</h3>
+                <p class="text-sm">$89.99</p>
+                <button class="mt-2 bg-red-500 text-white py-2 px-4 rounded-lg transform transition duration-300 hover:scale-105 hover:bg-red-600"><i class="fas fa-shopping-cart mr-2"></i>Buy now</button>
+            </div>
+            
+            <div class="relative group overflow-hidden rounded-lg shadow-lg bg-white p-4 hover:shadow-xl transition-all duration-300 hover-scale">
+                <div class="absolute top-2 right-2 bg-red-500 text-white rounded-full w-10 h-10 flex items-center justify-center">-25%</div>
+                <img src="assets/bag_2.jpg" alt="Bag" class="w-full h-64 object-cover rounded group-hover:scale-105 transition-all duration-500">
+                <h3 class="text-lg font-bold mt-2"><i class="fas fa-shopping-bag mr-2"></i>Bag</h3>
+                <p class="text-sm">$29.99</p>
+                <button class="mt-2 bg-red-500 text-white py-2 px-4 rounded-lg transform transition duration-300 hover:scale-105 hover:bg-red-600"><i class="fas fa-shopping-cart mr-2"></i>Buy now</button>
             </div>
         </div>
+    </section>
 
-        <!-- Product Card 3 -->
-        <div class="relative group overflow-hidden rounded-lg shadow-lg">
-            <img src="assets/glasses_1.jpg" alt="Product" class="w-full h-64 object-cover transition-all duration-500 group-hover:blur-sm group-hover:brightness-50">
-            <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-full transition-all duration-500">
-                <h3 class="text-lg font-bold">Glasses</h3>
-                <p class="text-sm">৳99</p>
-                <button class="mt-3 px-5 py-2 bg-red-500 rounded-lg hover:bg-red-600 transition-all duration-300">Shop Now</button>
+    <!-- New Arrivals Section -->
+    <section class="relative pt-16 bg-white py-12">
+        <h2 class="font-extrabold text-center text-3xl mb-8 relative inline-block mx-auto pb-2 after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-24 after:h-1 after:bg-red-500"><i class="fas fa-tag mr-2 text-blue-500"></i>New Arrivals</h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 p-6 max-w-6xl mx-auto">
+            <div class="relative group overflow-hidden rounded-lg shadow-lg bg-white p-4 hover:shadow-xl transition-all duration-300 hover-scale">
+                <div class="absolute top-2 left-2 bg-blue-500 text-white text-xs px-2 py-1 rounded">NEW</div>
+                <img src="assets/glasses_2.jpg" alt="Glasses" class="w-full h-64 object-cover rounded group-hover:scale-105 transition-all duration-500">
+                <h3 class="text-lg font-bold mt-2"><i class="fas fa-glasses mr-2"></i>Glasses</h3>
+                <p class="text-sm">$39.99</p>
+                <button class="mt-2 bg-red-500 text-white py-2 px-4 rounded-lg transform transition duration-300 hover:scale-105 hover:bg-red-600"><i class="fas fa-shopping-cart mr-2"></i>Buy now</button>
+            </div>
+            
+            <div class="relative group overflow-hidden rounded-lg shadow-lg bg-white p-4 hover:shadow-xl transition-all duration-300 hover-scale">
+                <div class="absolute top-2 left-2 bg-blue-500 text-white text-xs px-2 py-1 rounded">NEW</div>
+                <img src="assets/bag.jpg" alt="Bag" class="w-full h-64 object-cover rounded group-hover:scale-105 transition-all duration-500">
+                <h3 class="text-lg font-bold mt-2"><i class="fas fa-shopping-bag mr-2"></i>Bag</h3>
+                <p class="text-sm">$39.99</p>
+                <button class="mt-2 bg-red-500 text-white py-2 px-4 rounded-lg transform transition duration-300 hover:scale-105 hover:bg-red-600"><i class="fas fa-shopping-cart mr-2"></i>Buy now</button>
+            </div>
+            
+            <div class="relative group overflow-hidden rounded-lg shadow-lg bg-white p-4 hover:shadow-xl transition-all duration-300 hover-scale">
+                <div class="absolute top-2 left-2 bg-blue-500 text-white text-xs px-2 py-1 rounded">NEW</div>
+                <img src="assets/pants.jpg" alt="Pants" class="w-full h-64 object-cover rounded group-hover:scale-105 transition-all duration-500">
+                <h3 class="text-lg font-bold mt-2"><i class="fas fa-socks mr-2"></i>Pants</h3>
+                <p class="text-sm">$89.99</p>
+                <button class="mt-2 bg-red-500 text-white py-2 px-4 rounded-lg transform transition duration-300 hover:scale-105 hover:bg-red-600"><i class="fas fa-shopping-cart mr-2"></i>Buy now</button>
+            </div>
+            
+            <div class="relative group overflow-hidden rounded-lg shadow-lg bg-white p-4 hover:shadow-xl transition-all duration-300 hover-scale">
+                <div class="absolute top-2 left-2 bg-blue-500 text-white text-xs px-2 py-1 rounded">NEW</div>
+                <img src="assets/watch.jpg" alt="Watch" class="w-full h-64 object-cover rounded group-hover:scale-105 transition-all duration-500">
+                <h3 class="text-lg font-bold mt-2"><i class="fas fa-clock mr-2"></i>Watch</h3>
+                <p class="text-sm">$29.99</p>
+                <button class="mt-2 bg-red-500 text-white py-2 px-4 rounded-lg transform transition duration-300 hover:scale-105 hover:bg-red-600"><i class="fas fa-shopping-cart mr-2"></i>Buy now</button>
             </div>
         </div>
-    </div>
-</section>
-<!-- top sales section -->
-<section class="relative pt-20 bg-white">
-    <div>
-        <h3 class="font-extrabold  text-left ml-20 text-2xl">Top sales</h3>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 p-6">
-        <div class="relative group overflow-hidden rounded-lg shadow-lg bg-gray-100 p-4">
-            <img src="assets/t-shirt2.jpg" alt="T-shirt" class="w-full h-64 object-cover rounded">
-            <h3 class="text-lg font-bold mt-2">T-shirt</h3>
-            <p class="text-sm">$39.99</p>
-            <button class="mt-2 bg-red-500 text-white py-2 px-4 rounded-lg transform transition duration-300 hover:scale-105">Buy now</button>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 relative pb-4 after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-24 after:h-1 after:bg-red-500"><i class="fas fa-quote-left mr-2 text-red-500"></i>What Our Customers Say</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-red-500 font-bold mr-4">JD</div>
+                        <div>
+                            <h4 class="font-bold">John Doe</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"The quality of their clothing is outstanding. I've been shopping here for years and have never been disappointed!"</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 font-bold mr-4">AS</div>
+                        <div>
+                            <h4 class="font-bold">Alex Smith</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"The Jordan shoes I bought here are not only stylish but extremely comfortable. Fast shipping and great customer service too!"</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-500 font-bold mr-4">RJ</div>
+                        <div>
+                            <h4 class="font-bold">Ryan Johnson</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Their winter collection is amazing! Everything fits perfectly and the materials are high quality. Will definitely shop again."</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block px-8 py-3 bg-red-500 text-white font-semibold rounded-lg shadow-lg hover:bg-red-600 hover:scale-105 transition-all duration-300"><i class="fas fa-comments mr-2"></i>View All Reviews</a>
+            </div>
         </div>
-        
-        <div class="relative group overflow-hidden rounded-lg shadow-lg bg-gray-100 p-4">
-            <img src="assets/glasses_1.jpg" alt="Glasses" class="w-full h-64 object-cover rounded">
-            <h3 class="text-lg font-bold mt-2">Glasses</h3>
-            <p class="text-sm">$39.99</p>
-            <button class="mt-2 bg-red-500 text-white py-2 px-4 rounded-lg transform transition duration-300 hover:scale-105">Buy now</button>
-        </div>
-        
-        <div class="relative group overflow-hidden rounded-lg shadow-lg bg-gray-100 p-4">
-            <img src="assets/shoes_2.jpg" alt="Jordan" class="w-full h-64 object-cover rounded">
-            <h3 class="text-lg font-bold mt-2">Jordan</h3>
-            <p class="text-sm">$89.99</p>
-            <button class="mt-2 bg-red-500 text-white py-2 px-4 rounded-lg transform transition duration-300 hover:scale-105">Buy now</button>
-        </div>
-        
-        <div class="relative group overflow-hidden rounded-lg shadow-lg bg-gray-100 p-4">
-            <img src="assets/bag_2.jpg" alt="Bag" class="w-full h-64 object-cover rounded">
-            <h3 class="text-lg font-bold mt-2">Bag</h3>
-            <p class="text-sm">$29.99</p>
-            <button class="mt-2 bg-red-500 text-white py-2 px-4 rounded-lg transform transition duration-300 hover:scale-105">Buy now</button>
-        </div>
-    </div>
-</section>
-<!-- New arrivals-->
-<section class="relative pt-20 bg-white">
-    <div>
-        <h3 class="font-extrabold  text-left ml-20 text-2xl">New arrivals</h3>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 p-6">
-        <div class="relative group overflow-hidden rounded-lg shadow-lg bg-gray-100 p-4">
-            <img src="assets/glasses_2.jpg" alt="T-shirt" class="w-full h-64 object-cover rounded">
-            <h3 class="text-lg font-bold mt-2">Glasses</h3>
-            <p class="text-sm">$39.99</p>
-            <button class="mt-2 bg-red-500 text-white py-2 px-4 rounded-lg transform transition duration-300 hover:scale-105">Buy now</button>
-        </div>
-        
-        <div class="relative group overflow-hidden rounded-lg shadow-lg bg-gray-100 p-4">
-            <img src="assets/bag.jpg" alt="Glasses" class="w-full h-64 object-cover rounded">
-            <h3 class="text-lg font-bold mt-2">Bag</h3>
-            <p class="text-sm">$39.99</p>
-            <button class="mt-2 bg-red-500 text-white py-2 px-4 rounded-lg transform transition duration-300 hover:scale-105">Buy now</button>
-        </div>
-        
-        <div class="relative group overflow-hidden rounded-lg shadow-lg bg-gray-100 p-4">
-            <img src="assets/pants.jpg" alt="Jordan" class="w-full h-64 object-cover rounded">
-            <h3 class="text-lg font-bold mt-2">Pants</h3>
-            <p class="text-sm">$89.99</p>
-            <button class="mt-2 bg-red-500 text-white py-2 px-4 rounded-lg transform transition duration-300 hover:scale-105">Buy now</button>
-        </div>
-        
-        <div class="relative group overflow-hidden rounded-lg shadow-lg bg-gray-100 p-4">
-            <img src="assets/watch.jpg" alt="Bag" class="w-full h-64 object-cover rounded">
-            <h3 class="text-lg font-bold mt-2">Watch</h3>
-            <p class="text-sm">$29.99</p>
-            <button class="mt-2 bg-red-500 text-white py-2 px-4 rounded-lg transform transition duration-300 hover:scale-105">Buy now</button>
-        </div>
-    </div>
-</section>
-<!-- Hot sales section -->
-<section class="relative pt-20 bg-white">
-    <div>
-        <h3 class="font-extrabold  text-left ml-20 text-2xl">Hot sales</h3>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 p-6">
-        <div class="relative group overflow-hidden rounded-lg shadow-lg bg-gray-100 p-4">
-            <img src="assets/watch_2.jpg" alt="T-shirt" class="w-full h-64 object-cover rounded">
-            <h3 class="text-lg font-bold mt-2">T-shirt</h3>
-            <p class="text-sm">$39.99</p>
-            <button class="mt-2 bg-red-500 text-white py-2 px-4 rounded-lg transform transition duration-300 hover:scale-105">Buy now</button>
-        </div>
-        
-        <div class="relative group overflow-hidden rounded-lg shadow-lg bg-gray-100 p-4">
-            <img src="assets/bundle.jpg" alt="Glasses" class="w-full h-64 object-cover rounded">
-            <h3 class="text-lg font-bold mt-2">Dress up combo</h3>
-            <p class="text-sm">$39.99</p>
-            <button class="mt-2 bg-red-500 text-white py-2 px-4 rounded-lg transform transition duration-300 hover:scale-105">Buy now</button>
-        </div>
-        
-        <div class="relative group overflow-hidden rounded-lg shadow-lg bg-gray-100 p-4">
-            <img src="assets/shoe_new.jpg" alt="Jordan" class="w-full h-64 object-cover rounded">
-            <h3 class="text-lg font-bold mt-2">Jordan a-1</h3>
-            <p class="text-sm">$89.99</p>
-            <button class="mt-2 bg-red-500 text-white py-2 px-4 rounded-lg transform transition duration-300 hover:scale-105">Buy now</button>
-        </div>
-        
-        <div class="relative group overflow-hidden rounded-lg shadow-lg bg-gray-100 p-4">
-            <img src="assets/baggy.jpg" alt="Bag" class="w-full h-64 object-cover rounded">
-            <h3 class="text-lg font-bold mt-2">Baggy pants</h3>
-            <p class="text-sm">$29.99</p>
-            <button class="mt-2 bg-red-500 text-white py-2 px-4 rounded-lg transform transition duration-300 hover:scale-105">Buy now</button>
-        </div>
-    </div>
-</section>
-<!-- footer -->
-<section>
-<div id="footer-placeholder"></div>
-</section>
-<script src="script.js"></script>
+    </section>
+
+    <!-- Footer placeholder -->
+    <section>
+        <footer class="footer sm:footer-horizontal bg-base-200 text-base-content p-10">
+            <nav>
+              <h6 class="footer-title">Services</h6>
+              <a class="link link-hover">Branding</a>
+              <a class="link link-hover">Design</a>
+              <a class="link link-hover">Marketing</a>
+              <a class="link link-hover">Advertisement</a>
+            </nav>
+            <nav>
+              <h6 class="footer-title">Company</h6>
+              <a class="link link-hover">About us</a>
+              <a class="link link-hover">Contact</a>
+              <a class="link link-hover">Jobs</a>
+              <a class="link link-hover">Press kit</a>
+            </nav>
+            <nav>
+              <h6 class="footer-title">Legal</h6>
+              <a class="link link-hover">Terms of use</a>
+              <a class="link link-hover">Privacy policy</a>
+              <a class="link link-hover">Cookie policy</a>
+            </nav>
+            <form>
+              <h6 class="footer-title">Newsletter</h6>
+              <fieldset class="w-80">
+                <label>Enter your email address</label>
+                <div class="join">
+                  <input
+                    type="text"
+                    placeholder="username@site.com"
+                    class="input input-bordered join-item" />
+                  <button class="btn btn-primary join-item">Subscribe</button>
+                </div>
+              </fieldset>
+            </form>
+          </footer>
+    </section>
+
+    <script>
+        // Contact modal functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactBtn = document.getElementById('contactBtn');
+            const contactModal = document.getElementById('contactModal');
+            const closeModal = document.getElementById('closeModal');
+            
+            if (contactBtn && contactModal && closeModal) {
+                contactBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    contactModal.classList.remove('hidden');
+                    contactModal.classList.add('flex');
+                    document.body.style.overflow = 'hidden';
+                });
+                
+                closeModal.addEventListener('click', function() {
+                    contactModal.classList.add('hidden');
+                    contactModal.classList.remove('flex');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+            
+            // Add scroll reveal animation
+            const revealElements = document.querySelectorAll('section');
+            
+            function checkVisibility() {
+                revealElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('fade-in');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', checkVisibility);
+            checkVisibility(); // Check on initial load
+        });
+    </script>
 </body>
 </html>
